@@ -1,8 +1,21 @@
 # Mac system junk
 .DS_Store
 
-# Private data folder
-data/private/
+# Ignore everything in the data folder to keep it private
+data/*
+
+## But don't ignore these directories themselves
+!data/logs/
+!data/plans/
+
+## Inside these directories, ignore all files
+data/logs/*
+data/plans/*
+
+## Except keep the .gitkeep files so the directories remain
+!data/logs/.gitkeep
+!data/plans/.gitkeep
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
