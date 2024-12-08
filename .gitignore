@@ -1,3 +1,9 @@
+# Mac system junk
+.DS_Store
+
+# Private data folder
+data/private/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
