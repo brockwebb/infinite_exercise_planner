@@ -1,93 +1,78 @@
 ---
-date: 2024-01-15
+date: YYYY-MM-DD
 type: "workout"
-tags: [workout, strength, endurance, posture, mobility]
-goals: ["functional_strength", "endurance", "improve_posture"]
-periodization_phase: "build_week_2"
-energy_systems: ["aerobic", "anaerobic"]
-muscle_focus: ["legs", "back", "core"] # example: can list relevant muscle groups
-injury_considerations: ["left_golf_elbow_recovery", "mild_AC_shoulder"]
-equipment_used: ["sandbag_100lb", "trap_bar", "kettlebell_25lb", "airdyne_bike"]
-deviations: ["temporary"] # If you deviated from the original intent
-linked_events: [] # reference future races or key events if relevant
-related_notes: [] # can link to other Obsidian notes, e.g. ["[[2024-01-10_workout]]"]
+sport: "running/biking/walking/other" # dynamically set based on watch data
+tags: [workout, endurance, strength, mobility] # adjust as needed
+goals: ["functional_strength", "endurance", "improve_posture"] # example goals
+periodization_phase: "build_week_2" # or maintenance, etc.
+equipment_used: ["trap_bar", "kettlebell_25lb"] # add what was used
+deviations: ["temporary"] # if deviated from plan
+linked_events: [] # e.g., ["ultramarathon_training"]
+related_notes: [] # e.g., ["[[2024-01-10_workout]]"]
+
+# Sports Watch Data (if applicable)
+watch_data:
+  total_distance_km: null
+  duration_minutes: null
+  avg_heart_rate: null
+  max_heart_rate: null
+  avg_speed_kph: null
+  max_speed_kph: null
+  avg_cadence_spm: null
+  total_ascent_m: null
+  total_descent_m: null
+  calories: null
+  training_stress_score: null
+  total_training_effect: null
+  avg_temperature_c: null
+  max_temperature_c: null
+
+exercises:
+  - name: "Sandbag Shouldering"
+    sets: 3
+    reps: [5,5,5]
+    load: "100 lb sandbag"
+    notes: "Focus on hip drive"
+    tags: [sandbag, power, legs, core]
+  - name: "Farmer Walks"
+    sets: 4
+    details: "20 yards each trip"
+    load: "2x50lb kegs"
+    notes: "Upright posture, stable core"
+    tags: [farmer_carry, grip_strength, core, posture]
+
+injury_considerations:
+  - "Left elbow recovering, avoid painful movements"
+  - "Monitor shoulder stability on overhead lifts"
+
+notes:
+  - "Felt steady today"
+  - "If this was a run or bike ride, check watch_data fields for performance"
+  - "If purely strength day, consider more mobility tomorrow"
 ---
 
-# Workout Card: 2024-01-15
+# Workout Card: YYYY-MM-DD
 
 **Overview:**  
-Today’s session focuses on functional lower-body strength using sandbag and trap bar movements, plus a short conditioning finisher to support endurance and mild fat loss goals. Posture and mobility drills included to address thoracic spine issues.
+This card can represent any workout. If the activity involves data from a sports watch (running, biking, walking), populate the `watch_data` fields. If it’s a strength or circuit session, use the `exercises` section. If both apply (e.g., a short run followed by strength), fill in both.
 
-**Exercises:**
+**If using Sports Watch Data:**  
+- Check `watch_data` for distance, duration, heart rate, and other metrics.
+- `sport` field indicates the activity type (running/biking/walking/etc.).
 
-1. **Sandbag Shouldering**  
-   - Sets: 3  
-   - Reps: [5,5,5]  
-   - Load: 100 lb sandbag  
-   - Notes: Emphasize explosive hip drive, monitor elbow discomfort.  
-   - Tags: [sandbag, power, legs, core]
-
-2. **Farmer Walks**  
-   - Sets: 4 (trips ~20 yards each)  
-   - Load: 2x50lb kegs  
-   - Notes: Maintain upright posture, stable core engagement.  
-   - Tags: [farmer_carry, grip_strength, core, posture]
-
-3. **Trap Bar RDL**  
-   - Sets: 3  
-   - Reps: [8,8,8]  
-   - Load: ~185lbs  
-   - Notes: Focus on hamstrings and flat back, mindful of knee alignment.  
-   - Tags: [trap_bar, posterior_chain, strength, legs]
-
-4. **Kettlebell Swings**  
-   - Sets: 3  
-   - Reps: [15,15,15]  
-   - KB: 25lb  
-   - Notes: Explosive hip drive for conditioning effect, keep shoulders stable.  
-   - Tags: [kettlebell, conditioning, hips]
-
-**Conditioning Finisher (Optional):**  
-- Tabata Airdyne: 4 minutes (20s on / 10s off)  
-- Purpose: Increase aerobic capacity, support mild fat loss.  
-- Tags: [tabata, airdyne, conditioning]
+**If doing Strength/Conditioning:**  
+- Review `exercises` for sets, reps, loads, and notes.
 
 **Injury & Mobility Considerations:**  
-- Left elbow: Use neutral grips where possible; avoid pain.  
-- Shoulder: Thorough warm-up completed. Monitor overhead pressure.  
-- Posture/Mobility: 5 minutes T-spine mobilization post-workout (cat-cow stretches, foam rolling).  
-- Tags: [mobility, injury_prevention, posture_work]
+Adjust each session based on injury status and mobility goals.
 
-**Summary / Future Reference:**  
-- Good functional strength session with added conditioning.  
-- Consider slightly heavier swings next time if elbow feels stable.  
-- Maintain regular T-spine mobility to improve posture over time.  
-- Tags: [progression, long_term]
+**Notes:**  
+Add subjective reflections, conditions, and future adjustments here.
 
-----
+---
 
-**Instructions for Use:**
-
-- **Daily Logging:**  
-  Each day, ChatGPT can output a workout card in this format. You copy the card into your Obsidian vault’s `workouts/` folder and name it something like `2024-01-15_workout.md`.
-
-- **Linking and Graph Analysis:**  
-  The YAML front matter and consistent tags make it easy to later parse these notes for a graph database or semantic analysis.  
-  - Tools can read `tags`, `equipment_used`, or `muscle_focus` from the YAML to form nodes and edges in a graph DB.  
-  - Obsidian’s built-in graph view will show connections between workouts, muscle groups, and goals.
-
-- **Historical Trends:**  
-  Over time, you’ll accumulate these structured notes. You can write scripts to:
-  - Extract data from the front matter fields.
-  - Summarize how often you used a certain piece of equipment.
-  - Track the frequency of “deviations.”
-  - Map out periods of high conditioning vs. high strength focus.
-
-**Adjusting for Simplicity:**  
-If the template feels too verbose, you can drop certain fields. The key is to have a consistent structure:  
-- YAML front matter for metadata and tags.
-- A clear section for exercises, sets, reps, and weights.
-- Notes and tags for future searches.
-
-This template provides a stable foundation to build upon as your needs evolve.
-
+**Instructions:**
+- Replace placeholders and null values with actual data from your sports watch and/or your workout.
+- Keep the same YAML structure for consistency.
+- This single template now covers all workouts, whether data is from a run, bike ride, walk, or just a strength session.
+- When exporting or parsing data, just check the `sport` field and `watch_data` fields if they’re relevant. If they’re null or empty, you know it was a non-watch-based session.
