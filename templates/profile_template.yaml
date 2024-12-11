@@ -1,0 +1,131 @@
+# profile.yaml (Example Template)
+# 
+# Instructions:
+# 1. Copy this file into your local `data/` directory. The `data/` directory should be private and listed in `.gitignore`.
+# 2. Replace the placeholder values (e.g., AGE, WEIGHT_LBS, GOALS) with your real data.
+# 3. When providing info to ChatGPT, you can paste this template and supply your details, asking it to produce a fully populated profile.yaml.
+# 4. Remove any fields you don't need or add new ones as required.
+# 5. Keep this file private since it may contain sensitive personal and training data.
+
+personal_info:
+  sex: "F/M/Other"
+  age: 30               # e.g., 30
+  birthday: "YYYY-MM-DD" # e.g., "1985-06-15"
+  height_inches: 68      # e.g., 68 for 5'8"
+  weight_lbs: 150        # e.g., 150 lbs
+  experience_level: "intermediate" # beginner, intermediate, advanced
+
+goals:
+  short_term:
+    - description: "Improve functional strength"
+      notes: "Focus on carries, sandbag lifts, and circuits"
+    - description: "Enhance posture and mobility"
+      notes: "Incorporate daily mobility drills and posture-focused accessories"
+  long_term:
+    - description: "Maintain endurance for long-distance running"
+      notes: "Regular steady-state runs, progressive mileage"
+    - description: "Build aerobic base for ultramarathon"
+      notes: "Gradual long run progression over months"
+    - description: "Increase flexibility and remain agile for martial arts"
+      notes: "Weekly stretching sessions, dynamic warm-ups"
+
+injuries:
+  - name: "Left elbow strain"
+    status: "recovering"
+    notes: "Avoid heavy curling motions, consider neutral grips"
+  - name: "Right knee soreness"
+    status: "mostly_fine"
+    notes: "Limit impact and deep knee flexion exercises temporarily"
+
+equipment:
+  barbells:
+    - "45lb Olympic bar"
+    - "curl bar"
+    - "hex trap bar"
+  benches:
+    - "adjustable bench (incline/flat)"
+  plates: "various plates"
+  landmine:
+    - "landmine attachment"
+  dumbbells: [5, 10, 15, 20, 25, 30]
+  pull_up_bar: true
+  ab_wheel: true
+  resistance_bands: "various"
+  kettlebells: [15, 25, 35, 55]
+  slam_balls: [10, 30]
+  cardio_equipment:
+    - "rowing machine"
+    - "airdyne bike"
+  striking_equipment:
+    - "punching dummy"
+    - "heavy bag"
+  strongman_log: "110lbs"
+  chain: "60lbs anchor chain"
+  plyobox: "16x20x24"
+  bulgarian_bag: "35lbs"
+  sandbags: [100, 150]
+  corny_kegs: ["2x50lb", "2x100lb"]
+  farmer_carry_setup: "grips, chains, sleds"
+  weight_belt_chain: "for weighted pull-ups"
+
+exercise_preferences:
+  likes:
+    - "Sandbag carries"
+    - "Farmer walks"
+    - "Kettlebell swings"
+    - "Landmine exercises"
+    - "Circuits and complexes"
+    - "RDLs"
+    - "Bulgarian split squats"
+    - "Tabata/HIIT drills"
+  dislikes: []
+  approach_notes: "Functional, time-efficient, endurance-friendly strength training"
+
+training_philosophy:
+  primary_focus: "Endurance and functional strength"
+  secondary_focus: "Mobility, posture, longevity"
+  approach: "Periodized training with a mix of strength, endurance, and HIIT"
+
+periodization:
+  cycle_length_days: 28
+  cycle_structure:
+    - week: 1
+      focus: "build"
+    - week: 2
+      focus: "build"
+    - week: 3
+      focus: "build"
+    - week: 4
+      focus: "deload/light"
+  key_events: []
+  # Add events like races if needed
+
+window_and_deviation_policies:
+  planning_window_days: 10
+  record_deviations: true
+  deviation_types:
+    - "temporary"
+    - "semi_permanent"
+    - "permanent"
+
+historical_data_usage:
+  lookback_duration_days: 14
+  limit_context: "summary_only"
+
+rules_and_constraints:
+  - "Avoid heavy overhead pressing if shoulder instability occurs"
+  - "Limit impact if knee soreness flares up"
+  - "Include mobility drills daily"
+  - "Balance running volume with strength sessions"
+
+tags_and_metadata:
+  muscle_groups: ["legs", "back", "chest", "shoulders", "core", "arms"]
+  energy_systems: ["aerobic", "anaerobic", "lactate_threshold"]
+  purpose_tags: ["recovery", "build", "peak", "maintenance"]
+  deviation_tags: ["temporary_deviation", "semi_perm_deviation", "perm_deviation"]
+
+notes:
+  - "This is a template. Replace placeholders with real info."
+  - "Adjust as injuries heal or goals change."
+  - "Store this file in the private data directory (data/) not tracked by Git."
+
