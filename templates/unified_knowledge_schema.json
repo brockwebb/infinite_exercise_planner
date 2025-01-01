@@ -1,0 +1,155 @@
+{
+  "fields": [
+    {
+      "name": "date",
+      "definition": "Date of the workout.",
+      "type": "string",
+      "format": "YYYY-MM-DD",
+      "example": "2024-12-20"
+    },
+    {
+      "name": "type",
+      "definition": "Primary category of the workout.",
+      "allowed_values": ["strength", "conditioning", "endurance", "recovery", "mobility"],
+      "example": "strength",
+      "source": null
+    },
+    {
+      "name": "tags",
+      "definition": "Descriptive labels for workout elements, allowing for finer granularity.",
+      "hierarchy": {
+        "strength": ["deadlift", "squat", "carry", "row"],
+        "conditioning": {
+          "HIIT": ["Tabata"],
+          "tempo_intervals": []
+        },
+        "endurance": ["long_run", "steady_state"],
+        "mobility": ["yoga", "stretching"]
+      },
+      "source": null
+    },
+    {
+      "name": "goals",
+      "definition": "Purpose or objective of the workout.",
+      "examples": ["explosive_power", "aerobic_capacity", "recovery", "muscle_density"],
+      "source": null
+    },
+    {
+      "name": "intensity",
+      "definition": "Planned or perceived difficulty level based on effort.",
+      "scale": {
+        "1": {
+          "name": "very_light",
+          "description": "Casual walking, light yoga, or warm-up activities with minimal exertion."
+        },
+        "2": {
+          "name": "light",
+          "description": "Mobility work or dynamic stretching, easy effort suitable for recovery."
+        },
+        "3": {
+          "name": "moderate",
+          "description": "Easy steady-state cardio or recovery circuits, maintaining a comfortable pace."
+        },
+        "4": {
+          "name": "somewhat_hard",
+          "description": "Moderate lifting or tempo runs with noticeable effort but sustainable over time."
+        },
+        "5": {
+          "name": "hard",
+          "description": "Heavy lifting, tough circuits, or anaerobic bursts requiring significant exertion."
+        },
+        "6": {
+          "name": "very_hard",
+          "description": "Intense intervals or near-maximum lifts requiring focus and leaving you breathless."
+        },
+        "7": {
+          "name": "maximum_effort",
+          "description": "All-out effort, such as PR attempts or Tabata training at full tilt, pushing to absolute limits."
+        }
+      },
+      "example": "5 (hard)",
+      "source": null
+    },
+    {
+      "name": "equipment_used",
+      "definition": "Equipment or tools utilized during the workout.",
+      "examples": ["kettlebell", "dumbbell", "trap_bar", "sandbag"],
+      "source": null
+    },
+    {
+      "name": "muscle_focus",
+      "definition": "Primary muscle groups targeted during the workout.",
+      "allowed_values": ["core", "posterior_chain", "legs", "full_body", "upper_body"],
+      "source": null
+    },
+    {
+      "name": "exercise_demo",
+      "definition": "Links to demonstrations or instructions for specific exercises.",
+      "examples": [
+        {
+          "exercise": "trap_bar_deadlift",
+          "url": "https://www.exercisedemo.com/trap-bar-deadlift"
+        }
+      ]
+    }
+  ],
+  "intensity_scale": {
+    "1": {
+      "name": "very_light",
+      "description": "Casual walking, light yoga, or warm-up activities with minimal exertion."
+    },
+    "2": {
+      "name": "light",
+      "description": "Mobility work or dynamic stretching, easy effort suitable for recovery."
+    },
+    "3": {
+      "name": "moderate",
+      "description": "Easy steady-state cardio or recovery circuits, maintaining a comfortable pace."
+    },
+    "4": {
+      "name": "somewhat_hard",
+      "description": "Moderate lifting or tempo runs with noticeable effort but sustainable over time."
+    },
+    "5": {
+      "name": "hard",
+      "description": "Heavy lifting, tough circuits, or anaerobic bursts requiring significant exertion."
+    },
+    "6": {
+      "name": "very_hard",
+      "description": "Intense intervals or near-maximum lifts requiring focus and leaving you breathless."
+    },
+    "7": {
+      "name": "maximum_effort",
+      "description": "All-out effort, such as PR attempts or Tabata training at full tilt, pushing to absolute limits."
+    }
+  },
+  "tag_hierarchy": {
+    "strength": ["deadlift", "squat", "carry", "row"],
+    "conditioning": {
+      "HIIT": ["Tabata"],
+      "tempo_intervals": []
+    },
+    "endurance": ["long_run", "steady_state"],
+    "mobility": ["yoga", "stretching"]
+  },
+  "relationships": {
+    "tags": {
+      "HIIT": "conditioning",
+      "Tabata": "HIIT",
+      "deadlift": "strength",
+      "yoga": "mobility"
+    },
+    "energy_systems": {
+      "aerobic": ["endurance"],
+      "anaerobic": ["conditioning", "strength"]
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "User and AI",
+    "created_on": "2024-12-20",
+    "type": "Unified Knowledge Schema",
+    "notes": "This file serves as a unified resource for a workout log system, combining a data dictionary and ontology."
+  }
+}
+

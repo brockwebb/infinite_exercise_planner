@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/workout.refactored.schema.json",
+  "title": "Refactored Workout Card Schema",
+  "description": "A practical schema that mirrors your personal workout card format, with optional expansions for advanced data or watch integrations.",
+  "type": "object",
+  "properties": {
+
+    /* -------------------------------------------------- */
+    /*  Knowledge Schema Reference                        */
+    /* -------------------------------------------------- */
+    "knowledge_schema_ref": {
+      "type": "string",
+      "description": "Identifier or version of the unified knowledge schema this workout references, e.g. 'v1.0' or a URL."
+    },
+
+    /* -------------------------------------------------- */
+    /*  1. BASIC IDENTIFIERS & CONTEXT                   */
+    /* -------------------------------------------------- */
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the workout in YYYY-MM-DD format."
+    },
+    "type": {
+      "type": "string",
+      "description": "Top-level indicator for the session (e.g., 'workout', 'rest_day').",
+      "default": "workout"
+    },
+    "sport": {
+      "type": "string",
+      "description": "High-level sport or activity type (e.g., 'running', 'biking', 'strength')."
+    },
+    "periodization_phase": {
+      "type": "string",
+      "description": "Which part of the training cycle this workout belongs to (e.g., 'build_week_2', 'maintenance')."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Open-ended notes about the session, context, or key takeaways."
+    },
+
+    /* -------------------------------------------------- */
+    /*  2. TAGS & GOALS                                  */
+    /* -------------------------------------------------- */
+    "tags": {
+      "type": "array",
+      "description": "General labels for classifying the workout (e.g., ['workout', 'strength', 'endurance']).",
+      "items": { "type": "string" }
+    },
+    "goals": {
+      "type": "array",
+      "description": "Primary objectives for this session (e.g., ['functional_strength', 'conditioning']).",
+      "items": { "type": "string" }
+    },
+    "linked_goals": {
+      "type": "array",
+      "description": "Specific milestones or performance targets linked to this session (e.g., 'sandbag_225_goal').",
+      "items": { "type": "string" }
+    },
+    "linked_events": {
+      "type": "array",
+      "description": "Reference to upcoming races or events (e.g., 'ultramarathon_training').",
+      "items": { "type": "string" }
+    },
+
+    /* -------------------------------------------------- */
+    /*  3. FOCUS AREAS & EQUIPMENT                       */
+    /* -------------------------------------------------- */
+    "energy_systems": {
+      "type": "array",
+      "description": "Which energy systems are targeted (e.g., ['aerobic', 'anaerobic']).",
+      "items": { "type": "string" }
+    },
+    "muscle_focus": {
+      "type": "array",
+      "description": "Primary muscle groups targeted (e.g., ['posterior_chain', 'core']).",
+      "items": { "type": "string" }
+    },
+    "equipment_used": {
+      "type": "array",
+      "description": "List of tools or implements used (e.g., ['trap_bar', 'kettlebell']).",
+      "items": { "type": "string" }
+    },
+    "injury_considerations": {
+      "type": "array",
+      "description": "List of injury-related notes or modifications (e.g., ['monitor shoulder stability']).",
+      "items": { "type": "string" }
+    },
+    "deviations": {
+      "type": "array",
+      "description": "Any changes made from the planned session (e.g., missed sets or altered load).",
+      "items": { "type": "string" }
+    },
+
+    /* -------------------------------------------------- */
+    /*  4. INTENSITY                                     */
+    /* -------------------------------------------------- */
+    "intensity": {
+      "type": "object",
+      "description": "Planned vs. perceived difficulty (1–7 scale).",
+      "properties": {
+        "planned": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7,
+          "description": "Expected effort level before starting."
+        },
+        "perceived": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7,
+          "description": "Actual effort level felt during or after the workout."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    /* -------------------------------------------------- */
+    /*  5. WATCH DATA (IF AVAILABLE)                     */
+    /* -------------------------------------------------- */
+    "watch_data": {
+      "type": "object",
+      "description": "Running or cycling data from your Suno watch (or similar). All fields optional.",
+      "properties": {
+        "total_distance_km": { "type": "number" },
+        "duration_minutes": { "type": "number" },
+        "avg_heart_rate": { "type": "number" },
+        "max_heart_rate": { "type": "number" },
+        "avg_speed_kph": { "type": "number" },
+        "max_speed_kph": { "type": "number" },
+        "avg_cadence_spm": { "type": "number" },
+        "total_ascent_m": { "type": "number" },
+        "total_descent_m": { "type": "number" },
+        "calories": { "type": "number" },
+        "training_stress_score": { "type": "number" },
+        "total_training_effect": { "type": "number" },
+        "avg_temperature_c": { "type": "number" },
+        "max_temperature_c": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+
+    /* -------------------------------------------------- */
+    /*  6. RECOVERY & READINESS                          */
+    /* -------------------------------------------------- */
+    "readiness_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Self-assessed mental + physical readiness before the workout."
+    },
+    "recovery_data": {
+      "type": "object",
+      "description": "Optional data on how recovered you felt or any relevant biometrics.",
+      "properties": {
+        "sleep_hours": { "type": "number" },
+        "sleep_quality": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "recovery_score": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "resting_heart_rate": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+
+    /* -------------------------------------------------- */
+    /*  7. KEY METRICS                                   */
+    /* -------------------------------------------------- */
+    "key_metrics": {
+      "type": "object",
+      "description": "Highlight a few focal stats from the session.",
+      "properties": {
+        "peak_load": { "type": "number" },
+        "peak_heart_rate": { "type": "number" },
+        "total_volume_lifted": { "type": "number" },
+        "subjective_effort": { "type": "integer", "minimum": 1, "maximum": 10 }
+      },
+      "additionalProperties": false
+    },
+
+    /* -------------------------------------------------- */
+    /*  8. NUTRITION DATA                                */
+    /* -------------------------------------------------- */
+    "nutrition": {
+      "type": "object",
+      "description": "Optional info about pre- and post-workout meals or supplements.",
+      "properties": {
+        "pre_workout": { "type": "string" },
+        "post_workout": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    /* -------------------------------------------------- */
+    /*  9. PROGRESSION                                   */
+    /* -------------------------------------------------- */
+    "progression": {
+      "type": "object",
+      "description": "Short statements or next steps for your ongoing program.",
+      "properties": {
+        "current_focus": {
+          "type": "string",
+          "description": "What you're working on now (e.g., 'Increase sandbag carry distance')."
+        },
+        "next_goal": {
+          "type": "string",
+          "description": "An immediate or near-future performance milestone."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["date", "type"],
+  "additionalProperties": false
+}
+

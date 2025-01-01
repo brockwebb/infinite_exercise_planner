@@ -71,5 +71,41 @@ Obsidian is a local note-taking free-to-use software. It prioritizes connecting 
    - By maintaining consistent structure and tags, you can use command-line tools, `grep`, or simple Python scripts to search and filter based on tags, dates, or equipment.
 
 ---
+### **Unified Knowledge Schema**
+This file serves as a combined **data dictionary** and **ontology** for the workout logging system. It defines the core fields, allowable values, and hierarchical relationships between key concepts such as workout types, tags, intensity levels, and goals. The schema is designed to:
 
+- **Standardize Data Entry**: Ensures consistency across all workout logs and related metadata.
+- **Enable Scalability**: Provides a framework that can evolve with additional fields, tags, and relationships.
+- **Support Integration**: Serves as a foundation for future automation, knowledge graphs, or advanced querying systems.
 
+Key features include:
+- **Intensity Scale**: A 7-point Likert scale with detailed descriptions for planned and perceived effort.
+- **Tag Hierarchy**: Structured categories for workout types, muscle groups, and energy systems.
+- **Relationships**: Ontology-driven connections between tags, goals, and energy systems.
+- **Exercise Demonstrations**: Placeholders for linking proper form demonstrations or instructional videos.
+
+This file is a living document and will be updated as the system evolves.
+
+--- 
+
+```markdown
+## **Workout Card Schema**
+
+This template defines the **essential structure** for logging workouts in a simple, consistent format. It aligns with the [Unified Knowledge Schema](../path-to-knowledge-schema.md) by referencing core fields (date, type, tags, goals) while remaining flexible for additional data like watch metrics or advanced analytics.
+
+### **Key Highlights**
+
+- **Minimal Required Fields**: Ensures low-friction logging with only `date` and `type` as mandatory.
+- **Planned vs. Perceived Effort**: Captures workout intensity for better load management.
+- **Optional Data**: Includes placeholders for watch integration (`watch_data`), recovery metrics (`readiness_score`), and progression plans (`progression`).
+- **Knowledge Schema Reference**: A `knowledge_schema_ref` field links directly to your unified ontology or data dictionary.
+
+By storing each workout in this standardized JSON format, you can easily build or automate:
+
+1. **Basic Analytics** (e.g., volumes, durations, intensities).  
+2. **Event Tracking** (e.g., upcoming races or goals).  
+3. **Wearable Integrations** (e.g., heart rate and cadence data).  
+4. **Future Extensions** via the `advanced_data` approach in your knowledge schema.
+
+This schema is **intentionally minimal** while offering enough structure to support evolving needs. For full details on allowable values and hierarchical relationships, see the **Unified Knowledge Schema**.
+```
