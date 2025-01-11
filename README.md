@@ -19,16 +19,14 @@
 - **Incremental Complexity:**  
   Start simple. Just a Git repo, a Python environment, a Jupyter environment, a profile file, and a YAML for the 10-day schedule. Over time, consider adding embeddings, Obsidian integration, or Neo4j if it proves valuable.
 
-## Updated Setup Guidance
+## System Architecture
 
-- **Python Environment:**  
-  Create and activate a Python 3.12 virtual environment named `infexercise` to avoid dependency conflicts.  
-  Example:
-  ```bash
-  python3.12 -m venv infexercise
-  source infexercise/bin/activate
-  ```
-  *(Adjust commands as needed for your platform.)*
+![System Architecture](docs/img/system_architecture.svg)
+
+
+## Setup Guidance
+
+- **Python Environment:**  run the ./scripts/environment.sh to set up a conda environment, followed by pip -install -r requirements.txt
 
 - **Storing Templates in `data/private`**  
   All personal and sensitive templates, such as your `profile.yaml` and `intents_10day.yaml`, as well as prompt templates or any user-specific configurations, should be stored in `data/private/`. This directory will be ignored by Git to protect your privacy.
