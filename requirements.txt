@@ -1,0 +1,10 @@
+# Requirements after environment.sh has set up the conda environment and it's active
+# to run: pip install -r requirements.txt
+dash
+python-dotenv
+pandas
+numpy
+plotly
+jupyterlab
+ipykernel
+
