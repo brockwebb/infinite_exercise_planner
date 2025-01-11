@@ -1,0 +1,28 @@
+graph TD
+
+%% Frontend Layer
+A[Frontend: Dash Application] --> |User Interaction| B
+
+%% Backend Layer
+B[Backend Services] --> |API Requests| C[Training Plan Service]
+B --> |API Requests| D[Metrics and Tracking Service]
+B --> |API Requests| E[Profile Management Service]
+
+%% Database Layer
+C --> |Data Access| F[(PostgreSQL)]
+D --> |Data Access| F
+E --> |Data Access| F
+
+%% AI Integration
+C --> |Plan Adjustments| G[OpenAI API]
+D --> |Insights| G
+
+%% Optional Graph DB
+C --> |Relationships| H[(Neo4j)]
+
+%% User Interaction Loop
+style A fill:#f4a261,stroke:#000,stroke-width:2px
+style B fill:#2a9d8f,stroke:#000,stroke-width:2px
+style F fill:#e76f51,stroke:#000,stroke-width:2px
+style G fill:#fff603,stroke:#fff,stroke-width:2px
+style H fill:#d62828,stroke:#fff,stroke-width:2px
