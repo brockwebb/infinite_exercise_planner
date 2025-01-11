@@ -36,25 +36,57 @@
 ## Directory Structure (Initial Concept)
 
 ```
-InfiniteExercise/
-├── README.md
-├── .gitignore
-├── .env.template
-├── data/
-│   ├── private/          # Store profile.yaml, intents_10day.yaml, etc. here
-│   ├── logs/             # daily workout logs
-│   └── plans/            # stored daily plans (public if you choose)
-├── notebooks/
-│   ├── daily_workflow.ipynb        # generate & refine today's plan
-│   └── high_level_schedule.ipynb   # adjust the 10-day intent schedule
-├── src/
-│   ├── chatgpt_api.py
-│   ├── data_access.py
-│   ├── schedule_logic.py
-│   ├── embeddings.py (optional later)
-│   └── utils.py
-└── docs/
-    └── increment_one_proj_plan.md  # step-by-step plan
+workout-planner/
+├── backend/                   # Backend services and database logic
+│   ├── models/                # Database models (PostgreSQL, Neo4j, etc.)
+│   ├── services/              # Business logic (e.g., training plan generation, data aggregation)
+│   ├── database/              # Database setup scripts and configurations
+│   │   ├── postgres/          # PostgreSQL-specific scripts
+│   │   ├── neo4j/             # Neo4j-specific scripts
+│   └── api/                   # REST/GraphQL API endpoints (e.g., for frontend-backend communication)
+│       ├── plan.py            # Endpoints for training plan management
+│       ├── profile.py         # Endpoints for profile and equipment management
+│       └── metrics.py         # Endpoints for tracking and analytics
+├── frontend/                  # Dash or Streamlit frontend code
+│   ├── pages/                 # Organized views (e.g., Home, Tracking, Goals)
+│   │   ├── home.py            # Main dashboard page
+│   │   ├── tracking.py        # Tracking and metrics page
+│   │   ├── goals.py           # Goals and objectives management page
+│   │   └── plan.py            # Training plan visualization and interaction
+│   ├── components/            # Reusable UI components (charts, forms, etc.)
+│   └── app.py                 # Main entry point for the frontend
+├── data/                      # Profile, logs, and schema files
+│   ├── profile.yaml           # User profile data
+│   ├── schemas/               # Data schemas for logs, profiles, etc.
+│   │   ├── workout_log.schema.json
+│   │   └── unified_knowledge_schema.json
+│   ├── logs/                  # Workout logs
+│   │   ├── YYYY-MM-DD_workout.yaml
+│   │   └── YYYY-MM-DD_workout.json
+│   └── templates/             # Templates for profiles, logs, or workout cards
+├── tests/                     # Unit and integration tests
+│   ├── backend/               # Backend tests (e.g., API endpoints, database logic)
+│   ├── frontend/              # Frontend tests (e.g., UI rendering, interaction)
+│   └── integration/           # End-to-end tests (e.g., OpenAI integration, plan generation)
+├── docs/                      # Documentation
+│   ├── README.md              # Overview of the project
+│   ├── API.md                 # API documentation (e.g., endpoints, request/response)
+│   ├── architecture.md        # System architecture and design
+│   └── HOWTO.md               # Guides (e.g., setup, running locally, contributing)
+├── scripts/                   # Utility scripts
+│   ├── setup_db.sh            # Script to set up Postgres/Neo4j databases
+│   ├── migrate_data.py        # Script to migrate data between formats/databases
+│   ├── generate_sample_data.py # Script to generate test data
+│   └── deploy.sh              # Deployment automation
+├── configs/                   # Configuration files for the app
+│   ├── settings.yaml          # Application settings
+│   ├── openai_config.yaml     # OpenAI API configuration
+│   └── db_config.yaml         # Database connection settings
+├── requirements.txt           # Python dependencies
+├── .gitignore                 # Ignored files and directories
+├── LICENSE                    # License for the project
+└── README.md                  # Main project readme
+
 ```
 
 **Note:**  
